@@ -1,0 +1,248 @@
+@font-face{
+  font-family: Kyiv;
+  src:url("assets/KyivTypeSerif-Light3.otf");
+  }
+body {
+  font-family: Kyiv, sans-serif;
+  margin-top: auto;
+  padding: 0;
+  overflow: scroll;
+  background-color: #D9D9D9;
+  background-size: 150% 150%;
+  background-repeat: no-repeat; 
+ text-align:center;  
+   animation: moveTriangle 3s linear;
+}
+@keyframes moveTriangle {
+  0% {
+    clip-path: polygon(0% 50%, 100% 0%, 100% 100%); /* Start with a triangle on the left side */
+    transform: translateX(-50%);
+  }
+  50% {
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%); /* Move to the top-right corner */
+    transform: translateX(50%);
+  }
+  100% {
+    clip-path: polygon(0% 50%, 100% 0%, 100% 100%); /* Move back to the left side */
+    transform: translateX(-50%);
+  }
+}
+
+p {
+  margin-top: 100px;
+  padding: 30px;
+  color: #3f3210;
+  text-align: justify;
+  
+  margin-left: auto;
+  margin-right: auto;
+  max-width:600px;
+}
+
+
+.arrow-right {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+.arrow-right:after {
+  content: "";
+  display: inline-block !important;
+  width: 0;
+  height: 0;
+  border-left: 12px solid #C8A962;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  vertical-align: middle;
+
+}
+
+.arrow-right:before {
+  width: 30px;
+  height: 3px;
+  background: #C8A962;
+  content: "";
+  display: inline-block;
+  vertical-align: middle;}
+
+.arrow-left {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  cursor: pointer;
+}
+
+
+.arrow-left:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 3px;
+  background: #C8A962;
+  margin-right: 55px; 
+  vertical-align: middle;
+}
+
+.arrow-left:after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-right: 12px solid #C8A962;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  vertical-align: middle;
+  margin-left: -95px;
+}
+.arrow-right:hover:before,
+.arrow-right:hover:after {
+  background-color: white;
+}
+
+.arrow-left:hover:before,
+.arrow-left:hover:after {
+  background-color: white;
+}
+
+.leave {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity:50%;
+  
+
+}
+.leave img {
+  width: 600px; /* Adjust the width to your desired size */
+  height: auto; /* Maintain aspect ratio */
+}
+.falling-text {
+  font-family: Zen, serif;
+  font-size: 90px;
+  position: absolute;
+  animation: fall 5s ease-in-out; 
+  opacity:60%;
+  
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100vh); 
+  }
+  100% {
+    transform: translateY(100vh); 
+  }
+}
+.home-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: black; 
+  color: white;
+  opacity:40%;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+  transform: rotate(20deg);
+}
+
+.home-button::before {
+  content: "\2191"; /* Unicode for up arrow */
+  display: inline-block;
+  margin-right: 1px; /* Adjust spacing between arrow and text */
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.visible {
+  opacity: 1;
+}
+
+/* Other styles remain unchanged */
+
+
+
+.en-text1 {
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.en-text2 {
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ja-text1 {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 80px;
+  transition: opacity 0.5s ease;
+  font-size:20px;
+  margin-left: 330px;
+  margin-right: auto;
+}
+.ja-text2 {
+  opacity: 0;
+  position: absolute;
+  top: 300px;
+  left: 80px;
+  transition: opacity 0.5s ease;
+font-size:20px;
+  margin-left: 330px;
+  margin-right: auto;
+  margin-top:70px;
+}
+.ja-text1.fade-in,
+.ja-text2.fade-in {
+  opacity: 40%;
+}
+
+#toggleButton {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 20px; 
+  right: 20px;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  font-family: Kyiv, sans-serif;
+}
+
+
+#toggleButton::before {
+  content: attr(data-hover);
+    cursor: pointer;
+}
+
+.ja-text {
+  display: none;
+}
+
+#toggleButton:hover::before {
+  content: "JP"; 
+   font-family: Kyiv, sans-serif;
+    cursor: pointer;
+}
+
+
+
+[data-hover="JP"] ~ .ja-text {
+  display: block;
+}

@@ -1,0 +1,228 @@
+body {
+  font-family: Limelight, sans-serif;
+  margin-top: 300px;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(#827869, white);
+  background-size: 150% 150%;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 80%;
+  margin-top: -150px;
+}
+
+.part {
+  margin: 10px;
+  position: relative;
+}
+
+.button-container {
+  flex: 1;
+}
+
+.part a {
+  display: block;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.part a:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.part1 {
+  background-color: #3a3939;
+  opacity: 34%;
+  margin-top: 30px;
+}
+.part2 {
+  background-color: #645c5c;
+  opacity: 26%;
+  margin-top: 75px;
+}
+.part3 {
+  background-color: #928b8b;
+  opacity: 24%;
+  margin-top: 125px;
+}
+.part4 {
+  background-color: #938f8f;
+  opacity: 26%;
+  margin-top: 175px;
+}
+
+.title {
+  font-size: 75px;
+  color: #543e1d;
+}
+
+.title-shadow {
+  font-size: 150px;
+  color: rgba(49, 27, 0, 0.7);
+  margin-top: -200px;
+  margin-left: 450px;
+  opacity: 15%;
+  font-style: italic;
+  position: absolute;
+  font-family: Zen, serif;
+  animation: backAndForth var(--shadow-rhythm, 2s) ease-in-out infinite alternate forwards;
+}
+@keyframes backAndForth {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+
+.author {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 18px;
+}
+.author-shadow {
+  font-size: 18px;
+  color: rgba(49, 27, 0, 0.7);
+  opacity: 20%;
+  position:absolute;
+  top:20px;
+  right:20px;
+  font-family:Limelight,serif;
+  font-size:22px;
+  animation: backAndForth 2s ease-in-out infinite alternate forwards;
+}
+
+#light-mode-btn {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+#light-mode-btn a {
+  display: inline-block;
+  padding: 10px;
+  background-color: #827869;
+  opacity: 71%;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: none;
+  outline: none;
+}
+
+#light-mode-btn a:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+@font-face {
+  font-family: Limelight;
+  src: url("assets/Limelight-Regular.ttf");
+}
+@font-face {
+  font-family: Zen;
+  src: url("assets/ZenAntiqueSoft-Regular.ttf");
+}
+.fadeIn {
+  opacity: 0;
+  animation: fadeInAnimation 2s ease forwards;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+::selection {
+  background-color: white;
+  color: violet;
+}
+
+
+.shadow-mode {
+  --shadow-rhythm: 2s;
+}
+
+.shadow-mode .part {
+  isolation: isolate;
+  border-radius: 5px;
+}
+
+.shadow-mode .part::before,
+.shadow-mode .part::after {
+  content: "";
+  position: absolute;
+  inset: 2px 0 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: #070e20;
+  pointer-events: none;
+  animation: none;
+}
+
+.shadow-mode .part::before {
+  opacity: 0.68;
+  filter: blur(8px);
+  transform: translate3d(4px, 7px, 0) scale(0.98);
+}
+
+.shadow-mode .part::after {
+  opacity: 0.6;
+  filter: blur(2px);
+  transform: translate3d(1px, 3px, 0) scale(0.98);
+}
+
+.shadow-mode .part a {
+  position: relative;
+  z-index: 1;
+  box-shadow: inset 0 1px 0 rgb(232 226 207 / 5%);
+  transition: background-color 300ms ease;
+}
+
+@keyframes shadow-cast-sway {
+  from {
+    transform: translate3d(3px, 5px, 0) scale(0.97);
+    opacity: 0.56;
+  }
+  to {
+    transform: translate3d(5px, 11px, 0) scale(1.02);
+    opacity: 0.8;
+  }
+}
+
+@keyframes shadow-contact-sway {
+  from {
+    transform: translate3d(1px, 2px, 0) scale(0.99);
+    opacity: 0.64;
+  }
+  to {
+    transform: translate3d(1px, 4px, 0) scale(0.97);
+    opacity: 0.46;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .shadow-mode .part::before {
+    animation: shadow-cast-sway var(--shadow-rhythm) ease-in-out infinite alternate;
+  }
+
+  .shadow-mode .part::after {
+    animation: shadow-contact-sway var(--shadow-rhythm) ease-in-out infinite alternate;
+  }
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+(() => {
+  try {
+    const replay = new URLSearchParams(window.location.search).get("intro") === "1";
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || (!replay && window.sessionStorage.getItem("in-praise-entry-v1"))) return;
+    document.documentElement.classList.add("entry-pending");
+    window.__entryAbort = () => {
+      window.clearTimeout(window.__entryFailSafe);
+      document.documentElement.classList.remove("entry-pending", "entry-revealing");
+      document.querySelectorAll(".home-corners, .home-intro").forEach((element) => {
+        element.inert = false;
+        element.removeAttribute("aria-hidden");
+      });
+      document.getElementById("site-entry")?.remove();
+    };
+    window.__entryFailSafe = window.setTimeout(window.__entryAbort, 32000);
+  } catch {}
+})();
+  </script>
+  <link rel="preload" href="assets/fonts/ApocJPTrialRevelations-Regular.otf" as="font" type="font/otf" crossorigin>
+  <title>In Praise of Shadows</title>
+  <link rel="stylesheet" href="mainpageshadowmode.css?v=swaying-shadows-4">
+  <link rel="stylesheet" href="responsive.css?v=staircase-1">
+  <link rel="stylesheet" href="theme.css?v=index-panel-1">
+  <link rel="stylesheet" href="ambient-shadow.css?v=staircase-1">
+  <link rel="stylesheet" href="home-index.css?v=12">
+  <link rel="stylesheet" href="home-entry.css?v=5">
+  <script src="ambient-shadow.js" defer></script>
+
+  <script src="pointer-cursor.js?v=8" defer></script>
+  <script src="home-index.js?v=5" defer></script>
+  <script src="home-entry.js?v=3" defer onerror="window.__entryAbort?.()"></script>
+</head>
+<body class="fadeIn home-page index-home shadow-mode">
+  <section id="site-entry" hidden aria-label="Introduction">
+    <div class="entry-stage">
+      <p class="entry-sentence" lang="ja" data-entry-sentence data-text="影の中でしか見えないものがある。" aria-hidden="true">影の中でしか見えないものがある。</p>
+      <p class="entry-sentence" lang="en" data-entry-sentence data-text="Some things only appear in shadow." aria-hidden="true">Some things only appear in shadow.</p>
+    </div>
+    <button class="entry-skip" data-entry-skip type="button" aria-label="Skip introduction">[skip]</button>
+  </section>
+  <div class="ambient-background" aria-hidden="true">
+    <div class="ambient-artwork"><div class="ambient-dissolve"></div></div>
+  </div>
+  <nav class="home-corners" aria-label="Site">
+    <button class="author about about-trigger corner-trigger" id="about-trigger" data-panel-trigger type="button" aria-expanded="false" aria-controls="about-panel" aria-haspopup="dialog">[about]</button>
+    <button class="author index-trigger corner-trigger" id="index-trigger" data-panel-trigger type="button" aria-expanded="false" aria-controls="index-panel" aria-haspopup="dialog">[index]</button>
+    <div class="author-shadow" aria-hidden="true">[index]</div>
+    <div class="author-shadow about-shadow" aria-hidden="true">[about]</div>
+  </nav>
+  <main class="home-intro">
+    <h1 class="title"><span>In Praise</span> <span>of Shadows</span></h1>
+    <h1 class="title-shadow" aria-hidden="true" lang="ja">陰翳礼讃</h1>
+    <a class="mode-switch" href="index.html">[light mode]</a>
+  </main>
+
+  <dialog class="home-panel" id="index-panel" data-shadow-cursor aria-labelledby="index-heading">
+    <section class="index-sheet">
+      <header class="index-header">
+        <h2 id="index-heading">[index]</h2>
+        <button class="index-close" id="index-close" data-panel-close type="button" aria-label="Close index">[close]</button>
+      </header>
+      <nav class="index-chapters" data-panel-scroll aria-label="Chapters">
+          <a href="part1.html?mode=shadow&amp;v=reader-4"><span class="index-part">part 1</span><span class="index-chapter-title">Beneath the Eaves</span></a>
+          <a href="part2.html?mode=shadow&amp;v=reader-4"><span class="index-part">part 2</span><span class="index-chapter-title">The Fading Light</span></a>
+          <a href="part3.html?mode=shadow&amp;v=reader-4"><span class="index-part">part 3</span><span class="index-chapter-title">The Silent Alcove</span></a>
+          <a href="part4.html?mode=shadow&amp;v=reader-4"><span class="index-part">part 4</span><span class="index-chapter-title">Paper and Gold</span></a>
+          <a href="part5.html?mode=shadow&amp;v=reader-4"><span class="index-part">part 5</span><span class="index-chapter-title">The Texture of Daily Life</span></a>
+          <a href="part6.html?mode=shadow&amp;v=reader-4"><span class="index-part">part 6</span><span class="index-chapter-title">Bodies in Shadow</span></a>
+          <a href="part7.html?mode=shadow&amp;v=reader-4"><span class="index-part">part 7</span><span class="index-chapter-title">The Excess of Light</span></a>
+          <a href="part8.html?mode=shadow&amp;v=reader-4"><span class="index-part">part 8</span><span class="index-chapter-title">A Refuge for Shadows</span></a>
+      </nav>
+    </section>
+  </dialog>
+  <dialog class="home-panel" id="about-panel" data-shadow-cursor aria-labelledby="about-heading">
+    <section class="index-sheet about-sheet">
+      <header class="index-header">
+        <h2 id="about-heading">[about]</h2>
+        <button class="index-close" id="about-close" data-panel-close type="button" aria-label="Close about">[close]</button>
+      </header>
+      <div class="about-copy" data-panel-scroll tabindex="0" role="region" aria-label="About this site">
+        <section class="about-language" lang="en" aria-labelledby="about-en-label">
+          <h3 id="about-en-label">English</h3>
+          <p>Jun’ichirō Tanizaki’s <em>In Praise of Shadows</em> finds beauty in dim rooms and the soft sheen of lacquer. It asks what is lost as modern life fills those spaces with light. Switch between light and shadow as you read the eight sections at your own pace.</p>
+        </section>
+        <section class="about-language" lang="ja" aria-labelledby="about-ja-label">
+          <h3 id="about-ja-label">日本語</h3>
+          <p>谷崎潤一郎の『陰翳礼讃』は、薄暗い部屋や漆器のほのかな艶に美しさを見いだす随筆です。暮らしが明るさを求めるなかで、失われていくものを見つめます。明暗を切り替えながら、八つのセクションを自分のペースで読めます。</p>
+        </section>
+      </div>
+    </section>
+  </dialog>
+</body>
+</html>

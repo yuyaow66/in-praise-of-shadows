@@ -1,0 +1,275 @@
+@font-face{
+  font-family: Kyiv;
+  src:url("assets/KyivTypeSerif-Light3.otf");
+  }
+body {
+  font-family: Kyiv, sans-serif;
+  margin-top: auto;
+  padding: 0;
+  overflow: scroll;
+  background: white;
+  background-size: 150% 150%;
+  background-repeat: no-repeat; 
+  text-align:center; 
+  animation: moveRectangle 3s linear;
+}
+
+@keyframes moveRectangle {
+  0% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); /* Start with a rectangle */
+    transform: translateX(-50%);
+  }
+  50% {
+    clip-path: polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%); /* Move to the top-right corner with a larger rectangle */
+    transform: translateX(50%);
+  }
+  100% {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); /* Move back to the left side */
+    transform: translateX(-50%);
+  }
+}
+
+p {
+  margin-top: 100px;
+  padding: 30px;
+  color: #;
+  text-align: justify;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-left: 300px;
+  margin-right: 300px;
+  opacity:50%;
+}
+
+.p1 {
+  margin-bottom: 10px;
+  margin-left: 650px;
+  margin-right: 200px;
+}
+
+.p2 {
+  margin-top: 310px;
+  margin-left:55px;
+  margin-right: 500px;
+}
+.p3{
+  margin-top: 450px;
+  margin-left: 500px;
+  margin-right: 300px;
+}
+.p4{
+   margin-top: 750px;
+  margin-left: 80px;
+  margin-right: 700px;
+}
+.p5{
+   margin-top: 950px;
+  margin-left: 500px;
+  margin-right: 300px;
+}
+
+
+
+.arrow-right {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+.arrow-right:after {
+  content: "";
+  display: inline-block !important;
+  width: 0;
+  height: 0;
+  border-left: 12px solid #C8A962;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  vertical-align: middle;
+
+}
+
+.arrow-right:before {
+  width: 30px;
+  height: 3px;
+  background: #C8A962;
+  content: "";
+  display: inline-block;
+  vertical-align: middle;}
+
+.arrow-left {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  cursor: pointer;
+}
+
+
+.arrow-left:before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 3px;
+  background: #C8A962;
+  margin-right: 55px; 
+  vertical-align: middle;
+}
+
+.arrow-left:after {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-right: 12px solid #C8A962;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  vertical-align: middle;
+  margin-left: -95px;
+}
+.arrow-right:hover:before,
+.arrow-right:hover:after {
+  background-color: white;
+}
+
+.arrow-left:hover:before,
+.arrow-left:hover:after {
+  background-color: white;
+}
+.falling-text {
+  font-family: Zen, serif;
+  font-size: 90px;
+  position: absolute;
+  animation: fall 5s ease-in-out; 
+  opacity:60%;
+  
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100vh); 
+  }
+  100% {
+    transform: translateY(100vh); 
+  }
+}
+.circle-button1 {
+  position: absolute;
+  top: 30%; /* Adjust vertically as needed */
+  left: 40%; /* Adjust horizontally as needed */
+  transform: translate(-50%, -50%);
+}
+
+.circle-button1 img {
+  width: 130px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+.circle-button1:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.circle-button2 {
+  position: absolute;
+  top: 50%; /* Adjust vertically as needed */
+  left: 70%; /* Adjust horizontally as needed */
+  transform: translate(-50%, -50%);
+}
+
+.circle-button2 img {
+  width: 130px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+.circle-button2:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.circle-button3 {
+  position: absolute;
+  top: 70%; /* Adjust vertically as needed */
+  left: 30%; /* Adjust horizontally as needed */
+  transform: translate(-50%, -50%);
+}
+
+.circle-button3 img {
+  width: 130px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+.circle-button3:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.circle-button4 {
+  position: absolute;
+  top: 110%; /* Adjust vertically as needed */
+  left: 60%; /* Adjust horizontally as needed */
+  transform: translate(-50%, -50%);
+}
+
+.circle-button4 img {
+  width: 130px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+.circle-button4:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.circle-button5 {
+  position: absolute;
+  top:130%; /* Adjust vertically as needed */
+  left: 30%; /* Adjust horizontally as needed */
+  transform: translate(-50%, -50%);
+}
+
+.circle-button5 img {
+  width: 130px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+.circle-button5:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+#toggleButton {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: grey;
+  position: absolute;
+  top: 20px; 
+  right: 20px;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  font-family: Kyiv, sans-serif;
+}
+
+
+#toggleButton::before {
+  content: attr(data-hover);
+    cursor: pointer;
+}
+#toggleButton:hover::before {
+  content: "JP"; 
+   font-family: Kyiv, sans-serif;
+    cursor: pointer;
+  color: white
+}
+
+
+
+[data-hover="JP"] ~ .ja-text {
+  display: block;
+ 
+}
+
+.home-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: black; 
+  color: white;
+  opacity:40%;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+  transform: rotate(20deg);
+}
+
+.home-button::before {
+  content: "\2191"; /* Unicode for up arrow */
+  display: inline-block;
+  margin-right: 1px; /* Adjust spacing between arrow and text */
+}

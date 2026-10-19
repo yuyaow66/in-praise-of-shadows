@@ -1,0 +1,104 @@
+* { box-sizing: border-box; }
+html { min-height: 100%; }
+body { min-height: 100svh; }
+img { max-width: 100%; }
+.title { font-size: clamp(38px, 6vw, 75px); overflow-wrap: break-word; }
+.part .unavailable { display: block; padding: 10px 20px; background: rgba(0,0,0,.5); color: white; border-radius: 5px; cursor: default; }
+.unavailable small { display: block; font-size: 12px; margin-top: 5px; }
+.ja-text1, .ja-text2 { display: none; }
+.language-japanese .en-text1, .language-japanese .en-text2 { display: none; }
+.language-japanese .ja-text1, .language-japanese .ja-text2 { display: block; position: static; opacity: 1; margin: 40px auto; max-width: 600px; }
+#toggleButton::before, #toggleButton:hover::before { content: none; }
+.circle-button { z-index: 1; border: 0; background: none; padding: 0; cursor: pointer; }
+.home-button, .arrow-right, .arrow-left { z-index: 4; }
+@media (max-width: 800px) {
+  body.fadeIn { margin-top: 120px; }
+  .title-shadow { position: static; margin: -35px auto 20px; font-size: clamp(48px, 15vw, 90px); }
+  .container { width: calc(100% - 32px); margin: 0 auto; gap: 14px; }
+  .button-container { flex: 1 1 calc(50% - 14px); margin: 0; min-width: 0; }
+  .part { margin: 0; }
+  .part a, .part .unavailable { padding: 12px 10px; }
+  .author, .author-shadow { font-size: 15px; }
+  p, .p1, .p2, .p3, .p4, .p5 { width: calc(100% - 32px); max-width: 600px; margin-left: auto; margin-right: auto; padding: 18px; overflow-wrap: break-word; }
+  .leave img { width: min(600px, 90vw); }
+  .language-japanese .ja-text1, .language-japanese .ja-text2 { width: calc(100% - 32px); }
+  .passage-page { padding-top: 90px; padding-bottom: 50px; }
+  .circle-button, .circle-button:hover { position: relative; top: auto; left: auto; transform: none; display: inline-block; margin: 10px; }
+  .passage-page p { margin: 35px auto; }
+  .circle-button img { width: 90px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .fadeIn, .content { opacity: 1; }
+  .falling-text { display: none; }
+}
+
+.home-page .container {
+  --stair-step: clamp(26px, 3vw, 44px);
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  align-items: start;
+  column-gap: clamp(8px, 1.5vw, 22px);
+  row-gap: 0;
+  width: min(1240px, calc(100% - 64px));
+  margin: -150px auto 0;
+  padding-bottom: calc(var(--stair-step) * 7);
+}
+
+.home-page .button-container {
+  min-width: 0;
+  margin: 0;
+  align-self: start;
+  transform: translateY(calc(var(--stair-index) * var(--stair-step)));
+}
+
+.home-page .button-container:nth-child(1) { --stair-index: 0; }
+.home-page .button-container:nth-child(2) { --stair-index: 1; }
+.home-page .button-container:nth-child(3) { --stair-index: 2; }
+.home-page .button-container:nth-child(4) { --stair-index: 3; }
+.home-page .button-container:nth-child(5) { --stair-index: 4; }
+.home-page .button-container:nth-child(6) { --stair-index: 5; }
+.home-page .button-container:nth-child(7) { --stair-index: 6; }
+.home-page .button-container:nth-child(8) { --stair-index: 7; }
+
+.home-page .part {
+  margin: 0;
+}
+
+.home-page .part a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 11px clamp(6px, 1.2vw, 16px);
+  font-size: clamp(15px, 1.5vw, 18px);
+  white-space: nowrap;
+}
+
+@media (max-width: 1023px) {
+  .home-page .container {
+    --stair-step: clamp(22px, 4vw, 35px);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: clamp(8px, 2vw, 16px);
+    row-gap: calc(var(--stair-step) * 3 + 18px);
+    width: calc(100% - 40px);
+    padding-bottom: calc(var(--stair-step) * 3);
+  }
+
+  .home-page .button-container:nth-child(5) { --stair-index: 0; }
+  .home-page .button-container:nth-child(6) { --stair-index: 1; }
+  .home-page .button-container:nth-child(7) { --stair-index: 2; }
+  .home-page .button-container:nth-child(8) { --stair-index: 3; }
+}
+
+@media (max-width: 800px) {
+  .home-page .container {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-page .container {
+    width: calc(100% - 32px);
+  }
+}

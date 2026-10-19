@@ -1,0 +1,275 @@
+@font-face {
+  font-family: "Apoc JP";
+  src: url("assets/fonts/ApocJPTrialRevelations-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Apoc JP";
+  src: url("assets/fonts/ApocJPTrialRevelations-Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --font-family: "Apoc JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --ivory: #e8e2cf;
+  --moon: #c5c5cb;
+  --lavender: #77768e;
+  --slate: #45526d;
+  --navy: #202b43;
+  --ink: #0d1726;
+  --copper: #a57151;
+  --mist: var(--ivory);
+  --chalk: var(--ivory);
+  --wall: var(--lavender);
+  --deep: var(--navy);
+  --text: #1c253b;
+  --muted: #3e435d;
+  --accent: #35425f;
+  --button: #60432f;
+  --button-hover: #422d25;
+  --button-text: #e8e2cf;
+  --page-color: #b8bdc9;
+  --page-gradient: linear-gradient(125deg, #9ba3b5 0%, #c1c1cc 58%, #e0ddcf 100%);
+}
+
+body {
+  color: var(--text);
+  background: var(--page-gradient);
+  background-color: var(--page-color);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+body.shadow-mode {
+  --unavailable-surface: rgb(197 197 203 / 8%);
+  --text: #e8e2cf;
+  --muted: #bbb8c9;
+  --accent: #c5c5cb;
+  --button: #60432f;
+  --button-hover: #795038;
+  --page-color: #1c2439;
+  --page-gradient: linear-gradient(115deg, #35415e 0%, #292a45 48%, #0d202c 100%);
+}
+
+::selection {
+  background: var(--deep);
+  color: var(--chalk);
+}
+
+h1,
+.title,
+.author {
+  color: var(--text);
+}
+
+.title-shadow {
+  color: var(--ink);
+  opacity: 0.58;
+  text-shadow: 0 5px 12px rgb(5 10 23 / 45%);
+  filter: blur(0.6px);
+}
+
+.author-shadow {
+  top: 34px;
+  right: 26px;
+  z-index: 1;
+  color: #080f1d;
+  opacity: 0.82;
+  font-size: 24px;
+  text-shadow: 0 3px 7px rgb(5 10 23 / 60%);
+  filter: blur(0.4px);
+  pointer-events: none;
+}
+
+.home-page .author {
+  z-index: 2;
+}
+
+.part {
+  opacity: 1;
+  background: transparent;
+}
+
+.part1 { --chapter-surface: #1c2841; }
+.part2 { --chapter-surface: #28334e; }
+.part3 { --chapter-surface: #333c58; }
+.part4 { --chapter-surface: #404762; }
+.part5 { --chapter-surface: #454e68; }
+.part6 { --chapter-surface: #4b556e; }
+.part7 { --chapter-surface: #505b74; }
+.part8 { --chapter-surface: #56617a; }
+
+.part a {
+  background-color: var(--chapter-surface, var(--button));
+  color: var(--chalk);
+}
+
+.part a:hover {
+  background-color: var(--button-hover);
+}
+
+.part::before {
+  background-color: var(--ink);
+}
+
+.part .unavailable {
+  background: var(--unavailable-surface, rgb(32 43 67 / 12%));
+  color: var(--muted);
+}
+
+#shadow-mode-btn,
+#light-mode-btn {
+  background: transparent;
+}
+
+#shadow-mode-btn a,
+#light-mode-btn a,
+.home-button {
+  background-color: var(--button);
+  color: var(--button-text);
+  opacity: 1;
+}
+
+#shadow-mode-btn a:hover,
+#light-mode-btn a:hover,
+.home-button:hover {
+  background-color: var(--button-hover);
+}
+
+.door-left,
+.door-right {
+  background: var(--page-gradient);
+}
+
+p {
+  color: var(--text);
+}
+
+.passage-page p {
+  opacity: 1;
+  text-shadow: 2px 2px 4px rgb(13 23 38 / 12%);
+}
+
+#toggleButton {
+  background-color: var(--chalk);
+  color: var(--ink);
+}
+
+#toggleButton:hover {
+  background-color: var(--deep);
+  color: var(--chalk);
+}
+
+.arrow-left::before,
+.arrow-right::before {
+  background: var(--accent);
+}
+
+.arrow-left::after {
+  border-right-color: var(--accent);
+}
+
+.arrow-right::after {
+  border-left-color: var(--accent);
+}
+
+.arrow-left:hover::before,
+.arrow-right:hover::before {
+  background: var(--ink);
+}
+
+.arrow-left:hover::after {
+  background: transparent;
+  border-right-color: var(--ink);
+}
+
+.arrow-right:hover::after {
+  background: transparent;
+  border-left-color: var(--ink);
+}
+
+.leave img {
+  filter: grayscale(1) sepia(0.35) hue-rotate(175deg) saturate(0.7);
+  mix-blend-mode: multiply;
+}
+
+.circle-button {
+  border-radius: 50%;
+  background: linear-gradient(160deg, var(--deep) 0%, var(--wall) 48%, var(--mist) 100%);
+}
+
+.circle-button img {
+  display: block;
+  opacity: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+
+body,
+h1,
+p,
+a,
+button,
+.falling-text,
+.title-shadow,
+.author-shadow,
+#toggleButton,
+#toggleButton:hover::before {
+  font-family: var(--font-family);
+}
+
+h1 {
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+p {
+  line-height: 1.75;
+}
+
+.home-page .author.about,
+.home-page .author-shadow.about-shadow {
+  left: 20px;
+  right: auto;
+}
+
+.home-page .author-shadow.about-shadow {
+  left: 26px;
+}
+
+@media (max-width: 800px) {
+  .home-page .author-shadow {
+    font-size: 20px;
+  }
+}
+
+.shadow-cursor {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html.shadow-cursor-active:not(:has(dialog[open]:not([data-shadow-cursor]))),
+  html.shadow-cursor-active:not(:has(dialog[open]:not([data-shadow-cursor]))) * {
+    cursor: none !important;
+  }
+
+  html.shadow-cursor-active:not(:has(dialog[open]:not([data-shadow-cursor]))) .shadow-cursor {
+    display: block;
+  }
+}
+
+@media print {
+  .shadow-cursor { display: none !important; }
+}

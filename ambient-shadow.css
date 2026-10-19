@@ -1,0 +1,41 @@
+body.home-page {
+  --artwork-color: #6b7bac;
+  --artwork-opacity: 0.96;
+  isolation: isolate;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body.home-page.shadow-mode {
+  --artwork-color: #6c7faf;
+  --artwork-opacity: 0.95;
+}
+
+.ambient-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.ambient-artwork {
+  position: absolute;
+  top: 51%;
+  left: 50%;
+  width: clamp(440px, 124vmin, 1450px);
+  aspect-ratio: 9 / 16;
+  transform: translate(-47.4074%, -43.2292%);
+}
+
+.ambient-dissolve {
+  position: absolute;
+  inset: 0;
+  background-color: var(--artwork-color);
+  opacity: var(--artwork-opacity);
+  -webkit-mask: url("assets/Artboard-1-8.png") center / contain no-repeat;
+  mask: url("assets/Artboard-1-8.png") center / contain no-repeat;
+  transform-origin: 47.4074% 43.2292%;
+}
+
